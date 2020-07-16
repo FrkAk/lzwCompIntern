@@ -26,7 +26,11 @@ public class redisDB {
                 // use "rediss://" for SSL connection
                 .addNodeAddress("redis://10.10.10.228:6379");
 
+
         RedissonClient redisson = Redisson.create(config);
+
+
+
         System.out.println("Connection Successful");
     }
 
