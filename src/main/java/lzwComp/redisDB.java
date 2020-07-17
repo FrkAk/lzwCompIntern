@@ -53,6 +53,11 @@ public class redisDB {
         return objValue;
     }
 
+    public String getMap(){
+        String mapValue = (String) map.get("mapKey");
+        return mapValue;
+    }
+
     /**
         String objValue = bucket.get();
         System.out.println("The object value is: " + objValue);
