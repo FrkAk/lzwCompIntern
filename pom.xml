@@ -52,10 +52,10 @@
             <scope>test</scope>
         </dependency>
 
-
-
     </dependencies>
 
+    <!--Indicate that its a web app-->
+    <packaging>war</packaging>
 
 
 
