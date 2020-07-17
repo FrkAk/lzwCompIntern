@@ -60,7 +60,9 @@ public class redisDB {
 
     public void disconnect(){
         redisson.shutdown();
+
     }
+
 
 }
 
