@@ -48,6 +48,11 @@ public class redisDB {
         map.put("mapKey", "LZW is map value");
     }
 
+    public String getBucket(){
+        String objValue = bucket.get();
+        return objValue;
+    }
+
     /**
         String objValue = bucket.get();
         System.out.println("The object value is: " + objValue);
