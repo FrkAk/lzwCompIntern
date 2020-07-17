@@ -43,34 +43,24 @@ public class redisDB {
         bucket = redisson.getBucket(bucketName);
         bucket.set(value);
     }
-    public void setMap(String mapName, String value){
-        map = redisson.getMap("theMap");
-        map.put("mapKey", "LZW is map value");
+    public void setMap(String mapName, String mapKey ,String value){
+        map = redisson.getMap(mapName);
+        map.put(mapKey, value);
     }
 
-    public String getBucket(){
-        String objValue = bucket.get();
-        return objValue;
+    public String getBucket(String bucketName){
+        bucket = redisson.getBucket(bucketName);
+        return bucket.get();
     }
 
-    public String getMap(){
-        String mapValue = (String) map.get("mapKey");
-        return mapValue;
+    public String getMap(String mapName, String mapKey){
+        map = redisson.getMap(mapName);
+        return (String) map.get(mapKey);
     }
 
     public void disconnect(){
         redisson.shutdown();
     }
-
-    /**
-        String objValue = bucket.get();
-        System.out.println("The object value is: " + objValue);
-        String mapValue = (String) map.get("mapKey");
-        System.out.println("The map value is: " + mapValue);
-        redisson.shutdown();
-
-
-    }*/
 
 }
 
