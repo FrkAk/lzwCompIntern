@@ -58,6 +58,10 @@ public class redisDB {
         return mapValue;
     }
 
+    public void disconnect(){
+        redisson.shutdown();
+    }
+
     /**
         String objValue = bucket.get();
         System.out.println("The object value is: " + objValue);

@@ -11,6 +11,8 @@ public class Main {
 
         redisDB db = new redisDB();
 
+        db.disconnect();
+
 
 
     }
