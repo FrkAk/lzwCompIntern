@@ -1,6 +1,8 @@
 package lzwComp;
 
 
+import lzwComp.database.redisDB;
+
 public class Main {
 
     public static void main(String[] args) {

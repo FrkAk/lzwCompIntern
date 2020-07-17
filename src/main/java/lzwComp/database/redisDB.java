@@ -1,4 +1,4 @@
-package lzwComp;
+package lzwComp.database;
 
 
 import java.io.IOException;
