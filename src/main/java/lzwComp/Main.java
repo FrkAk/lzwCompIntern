@@ -9,7 +9,7 @@ public class Main {
         System.out.println("hello zey");
         System.out.println("Hello Frkn");
 
-        redisDB.client();
+        redisDB.clientInit();
 
 
 

@@ -18,36 +18,45 @@ import org.redisson.api.RedissonClient;
 import org.redisson.config.TransportMode;
 
 public class redisDB {
+    private Config config;
+    private RedissonClient redisson;
+    private RBucket<String> bucket;
+    private RMap<String, String> map;
 
-    public static void client(){
+    public redisDB() {
         System.out.println("Connection Initiated");
 
-        Config config = new Config();
+        config = new Config();
         config.setTransportMode(TransportMode.NIO);
         config.useSingleServer()
                 // use "rediss://" for SSL connection
                 .setAddress("redis://10.10.10.228:6379");
 
 
-        RedissonClient redisson = Redisson.create(config);
+        redisson = Redisson.create(config);
 
+        System.out.println("Connection Successful");
+    }
 
+    public void setBucket(String bucketName, String value) {
 
-        RBucket<String> bucket = redisson.getBucket("stringObject");
-        bucket.set("This is the object value");
+        bucket = redisson.getBucket(bucketName);
+        bucket.set(value);
+    }
+    public void setMap(String mapName, String value){
+        map = redisson.getMap("theMap");
+        map.put("mapKey", "LZW is map value");
+    }
 
-        RMap<String, String> Map = redisson.getMap("theMap");
-        Map.put("mapKey", "LZW is map value");
-
+    /**
         String objValue = bucket.get();
         System.out.println("The object value is: " + objValue);
-        String mapValue = (String) Map.get("mapKey");
+        String mapValue = (String) map.get("mapKey");
         System.out.println("The map value is: " + mapValue);
         redisson.shutdown();
 
 
-        System.out.println("Connection Successful");
-    }
+    }*/
 
 }
 
