@@ -12,4 +12,6 @@ public class restService {
     public Response hello() {
         return Response.status(200).entity("hello").build();
     }
+
+
 }
