@@ -25,4 +25,5 @@
         <!--Prefix for endpoint-->
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
+
 </web-app>
