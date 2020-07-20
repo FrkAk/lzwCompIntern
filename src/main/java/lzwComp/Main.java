@@ -20,12 +20,7 @@ public class Main {
         db.setMap("testMap","m5" ,"This is a test5");
         db.setMap("testMap","m6" ,"This is a test6");
 
-        System.out.println(db.getMap("testMap", "m4"));
-
-
-
-
-
+        db.getMap("testMap", "m7");
 
 
         db.disconnect();
