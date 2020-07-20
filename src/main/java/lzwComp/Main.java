@@ -1,6 +1,7 @@
 package lzwComp;
 
 
+import lzwComp.app.userDB;
 import lzwComp.database.redisDB;
 
 public class Main {
@@ -11,22 +12,19 @@ public class Main {
         System.out.println("hello zey");
         System.out.println("Hello Frkn");
 
-        redisDB db = new redisDB();
+        userDB userdb = new userDB();
 
-        db.setMap("testMap","m1" ,"This is a test1");
-        db.setMap("testMap","m2" ,"This is a test2");
-        db.setMap("testMap","m3" ,"This is a test3");
-        db.setMap("testMap","m4" ,"This is a test4");
-        db.setMap("testMap","m5" ,"This is a test5");
-        db.setMap("testMap","m6" ,"This is a test6");
+        userdb.setUser("testUser1", "test123");
+        for(int i = 0 ; i <10; i++){
+            String username= "testUser"+ Integer.toString(i);
+            String password= "test"+ Integer.toString((int) getRandomIntegerBetweenRange(0,1000));
+            userdb.setUser(username,password);
+        }
 
-        db.getMap("testMap", "m7");
+    }
 
-
-        db.disconnect();
-
-
-
+    public static double getRandomIntegerBetweenRange(double min, double max){
+        return (int)(Math.random()*((max-min)+1))+min;
     }
 
 }

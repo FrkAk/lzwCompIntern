@@ -59,6 +59,7 @@ public class redisDB {
     }
 
     public void disconnect(){
+        System.out.println("Disconnected");
         redisson.shutdown();
 
     }
