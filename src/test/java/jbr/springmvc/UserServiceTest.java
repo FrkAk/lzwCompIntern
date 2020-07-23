@@ -21,13 +21,13 @@ public class UserServiceTest {
   @Test
   public void testRegister() {
     User user = new User();
-    user.setUsername("ranjith");
-    user.setPassword("sekar");
-    user.setFirstname("Ranjith");
-    user.setLastname("Sekar");
-    user.setAddress("chennai, t.nagar");
-    user.setEmail("ranjith@gmail.com");
-    user.setPhone(222);
+    user.setUsername("TestRedisOnCode");
+    user.setPassword("TestRedisOnCode123");
+    user.setFirstname("TestRedisOnCodeFirst");
+    user.setLastname("TestRedisOnCodeLast");
+    user.setAddress("TestRedisOnCode Address");
+    user.setEmail("TestRedisOnCode@gmail.com");
+    user.setPhone(123456789);
 
     int result = userService.register(user);
     Assert.assertEquals(1, result);
