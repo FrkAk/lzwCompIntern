@@ -39,8 +39,10 @@ public class UserDaoImpl implements UserDao {
     if (db.isExist(databaseName,login.getUsername())){
       String userString= db.getMap(databaseName,login.getUsername());
       db.disconnect();
+
       JsonConverter con = new JsonConverter();
       User enteredUser= (User)con.jsonToObject(userString, User.class);
+
       if(login.getPassword().equals(enteredUser.getPassword())) return enteredUser;
       else return null;
 
