@@ -11,6 +11,7 @@
 		<tr>
 			<td><a href="login">Login</a></td>
 			<td><a href="register">Register</a></td>
+			<td><a href="uploadFile">Dropzone</a></td>
 		</tr>
 	</table>
 </body>

@@ -30,6 +30,18 @@ public class RegistrationController {
   public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
       @ModelAttribute("user") User user) {
 
+
+
+
+
+
+
+
+
+
+
+
+
     userService.register(user);
     //userService.registerRedis(user);
 

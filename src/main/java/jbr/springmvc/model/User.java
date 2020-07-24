@@ -9,6 +9,8 @@ public class User {
   private String email;
   private String address;
   private String status="User";
+  private boolean enabled=false;
+  private String token;
   private int phone;
 
 
@@ -53,6 +55,17 @@ public class User {
     return phone;
   }
 
+  public String getStatus() {
+    return status;
+  }
+
+  public boolean isEnabled() {
+    return enabled;
+  }
+
+  public String getToken() {
+    return token;
+  }
 
   public void setUsername(String username) {
     System.out.println("username: " + username);
@@ -85,6 +98,18 @@ public class User {
     this.phone = phone;
   }
 
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
+
   @Override
   public String toString() {
     return "{ username='" + username + '\'' +
@@ -94,6 +119,7 @@ public class User {
             ", email='" + email + '\'' +
             ", address='" + address + '\'' +
             ", status='" + status + '\'' +
+            ", enabled='" + enabled + '\'' +
             ", phone=" + phone +
             '}';
   }
