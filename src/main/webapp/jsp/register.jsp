@@ -4,56 +4,51 @@
 	pageEncoding="ISO-8859-1"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link href="${pageContext.request.contextPath}/jsp/common.css" rel="stylesheet" >
+	<title>Registration</title>
 </head>
 <body>
-	<form:form id="regForm" modelAttribute="user" action="registerProcess"
-		method="post">
+	<div class="form-container">
+		<form:form id="regForm" modelAttribute="user" action="registerProcess" method="post">
+			<h1>Create Account</h1>
+			<span>with your email for registration</span>
+			<label>
+				<input type="text" placeholder="Username" name="username"/>
+			</label>
 
-		<table align="center">
-			<tr>
-				<td><form:label path="username">Username</form:label></td>
-				<td><form:input path="username" name="username" id="username" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="password">Password</form:label></td>
-				<td><form:password path="password" name="password"
-						id="password" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="firstname">FirstName</form:label></td>
-				<td><form:input path="firstname" name="firstname"
-						id="firstname" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="lastname">LastName</form:label></td>
-				<td><form:input path="lastname" name="lastname" id="lastname" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="email">Email</form:label></td>
-				<td><form:input path="email" name="email" id="email" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="address">Address</form:label></td>
-				<td><form:input path="address" name="address" id="address" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="phone">Phone</form:label></td>
-				<td><form:input path="phone" name="phone" id="phone" /></td>
-			</tr>
+			<label>
+				<input type="text" placeholder="Firs Name" name="firstname"/>
+			</label>
 
-			<tr>
-				<td></td>
-				<td><form:button id="register" name="register">Register</form:button></td>
-			</tr>
-			<tr></tr>
-			<tr>
-				<td></td>
-				<td><a href="home.jsp">Home</a></td>
-			</tr>
-		</table>
-	</form:form>
+			<label>
+				<input type="text" placeholder="Last Name" name="lastname"/>
+			</label>
+
+			<label>
+				<input type="email" placeholder="Email"  name="email"/>
+			</label>
+
+			<label>
+				<input type="text" placeholder="Address" name="address"/>
+			</label>
+
+			<label>
+				<input type="tel" placeholder="Telephone"  name="phone"/>
+			</label>
+
+			<label>
+				<input type="password" placeholder="Password" name="password"/>
+			</label>
+
+			<button type = "submit" id="register">Sign Up</button>
+		</form:form>
+
+	</div>
+
+	<button type = "button" style= "position: absolute; top: 30px; right: 25px;"
+			onclick = "window.location.href='home.jsp'" >Home Page</button>
+
 
 </body>
 </html>
