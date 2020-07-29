@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link href="${pageContext.request.contextPath}/jsp/common.css" rel="stylesheet" >
+	<style><%@include file="resources/common.css"%></style>
 	<title>Registration</title>
 </head>
 <body>
@@ -46,8 +46,7 @@
 
 	</div>
 
-	<button type = "button" style= "position: absolute; top: 30px; right: 25px;"
-			onclick = "window.location.href='home.jsp'" >Home Page</button>
+	<button type = "button" style= "position: absolute; top: 30px; right: 25px;" onclick = "window.location.href='home.jsp'" >Home Page</button>
 
 
 </body>

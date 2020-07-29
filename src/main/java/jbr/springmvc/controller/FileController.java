@@ -18,6 +18,7 @@ public class FileController {
     public ModelAndView uploadFile(HttpServletRequest request, HttpServletResponse response){
         ModelAndView mav = new ModelAndView("uploadFile");
         mav.addObject("dropzone", new FileStorage());
+        System.out.println("File has been arrived uploadFile");
 
         return mav;
     }
@@ -26,6 +27,8 @@ public class FileController {
     public ModelAndView uploadFileProcess (HttpServletRequest request, HttpServletResponse response,
                                            @ModelAttribute("dropzone") FileStorage fileStorage){
         ModelAndView mav = null;
+        System.out.println("File has been arrived uploadFileProcess");
+        fileStorage.setFile(fileStorage.getFile());
 
 
 

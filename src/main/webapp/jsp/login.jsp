@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link href="common.css" rel="stylesheet" >
+	<style><%@include file="resources/common.css"%></style>
 	<title>Login</title>
 </head>
 <body>
@@ -26,8 +26,7 @@
 
 		</form:form>
 	</div>
-	<button type = "button" style= "position: absolute; top: 30px; right: 25px;"
-			onclick = "window.location.href='home.jsp'" >Home Page</button>
+	<button type = "button" style= "position: absolute; top: 30px; right: 25px;" onclick = "window.location.href='home.jsp'" >Home Page</button>
 	<table align="center">
 		<tr>
 			<td style="font-style: italic; color: red;">${message}</td>
