@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 @Controller
 public class FileController {
 
@@ -28,8 +31,12 @@ public class FileController {
                                            @ModelAttribute("dropzone") FileStorage fileStorage){
         ModelAndView mav = null;
         System.out.println("File has been arrived uploadFileProcess");
-        fileStorage.setFile(fileStorage.getFile());
-
+        File uploadedFile= fileStorage.getFile();
+        try {
+            fileStorage.setFile(uploadedFile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
 
         return mav;
