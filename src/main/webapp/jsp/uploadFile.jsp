@@ -14,9 +14,9 @@
 <body>
 
     <form:form id="my-awesome-dropzone" modelAttribute="dropzone" action="uploadFileProcess" method="post" class="dropzone">
-
+        <button type = "submit" id="dropzone" >Upload</button>
     </form:form>
-    <button type = "submit" id="dropzone" >Upload</button>
+
 
     <button type = "button" style= "position: absolute; top: 30px; right: 25px;" onclick = "window.location.href='home.jsp'" >Home Page</button>
 
