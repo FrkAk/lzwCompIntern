@@ -9,10 +9,6 @@
 	<style><%@include file="/jsp/resources/common.css"%></style>
 </head>
 <body>
-
-
-
-
 	<table align="center">
 			<td><a href="login">Login</a></td>
 			<td><a href="register">Register</a></td>
