@@ -37,6 +37,7 @@ public class FileController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        System.out.printf("Hello");
 
 
         return mav;
