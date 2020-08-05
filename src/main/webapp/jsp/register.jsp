@@ -5,10 +5,12 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<style><%@include file="resources/common.css"%></style>
+	<style type="text/css"><%@include file="resources/common.css"%></style>
+
 	<title>Registration</title>
 </head>
 <body>
+<h2>Compress your File after Sign Up</h2>
 	<div class="form-container">
 		<form:form id="regForm" modelAttribute="user" action="registerProcess" method="post">
 			<h1>Create Account</h1>

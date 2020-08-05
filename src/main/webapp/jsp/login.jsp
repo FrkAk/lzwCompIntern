@@ -6,11 +6,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<style><%@include file="resources/common.css"%></style>
+	<style type="text/css"><%@include file="resources/common.css"%></style>
 	<title>Login</title>
 </head>
 <body>
-	<h2>Compress your File after Sign in</h2>
+	<h2>Compress your File after Sign In</h2>
 	<div class="form-container">
 		<form:form id="loginForm" modelAttribute="login" action="loginProcess"
 				   method="post">
@@ -22,11 +22,12 @@
 			<label>
 				<input type="password" placeholder="Password" name="password"/>
 			</label>
-			<button type = "submit" id="login" >Sign In</button>
+			<button type = "submit" id="login"  >Sign In</button>
 
 		</form:form>
 	</div>
 	<button type = "button" style= "position: absolute; top: 30px; right: 25px;" onclick = "window.location.href='home.jsp'" >Home Page</button>
+	<br>
 	<table align="center">
 		<tr>
 			<td style="font-style: italic; color: red;">${message}</td>

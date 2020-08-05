@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.UUID;
 
 import jbr.springmvc.model.Login;
 import jbr.springmvc.service.LZWCompressionService;
@@ -43,8 +44,10 @@ public class FileUploadController {
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     public @ResponseBody
-    String uploadFileAndLZWHandler(@RequestParam("name") String name,
-                                   @RequestParam("file") MultipartFile file) {
+    String uploadFileAndLZWHandler(@RequestParam("file") MultipartFile file) {
+        String uniqueID = UUID.randomUUID().toString();
+        String fileLogName= uniqueID+".txt";
+
 
         if (!file.isEmpty()) {
             try {
@@ -60,6 +63,7 @@ public class FileUploadController {
                 String decompressed = LZWCompressionService.decompress(compressed);
                 System.out.println(decompressed);
 
+
                 // Creating the directory to store file
                 String rootPath = System.getProperty("catalina.home");
                 File dir = new File(rootPath + File.separator + "tmpFiles");
@@ -68,7 +72,7 @@ public class FileUploadController {
 
                 // Create the file on server
                 File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + name);
+                        + File.separator + fileLogName);
                 BufferedOutputStream stream = new BufferedOutputStream(
                         new FileOutputStream(serverFile));
                 stream.write(bytes);
@@ -77,12 +81,12 @@ public class FileUploadController {
                 logger.info("Server File Location="
                         + serverFile.getAbsolutePath());
 
-                return "You successfully uploaded file=" + name;
+                return "You successfully uploaded file=" + fileLogName;
             } catch (Exception e) {
-                return "You failed to upload " + name + " => " + e.getMessage();
+                return "You failed to upload " + fileLogName + " => " + e.getMessage();
             }
         } else {
-            return "You failed to upload " + name
+            return "You failed to upload " + fileLogName
                     + " because the file was empty.";
         }
     }

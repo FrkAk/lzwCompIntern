@@ -5,19 +5,22 @@
 <head>
 
     <title>Dropzone for LZW</title>
+    <style type="text/css"><%@include file="resources/common.css"%></style>
+
 </head>
 
 <body>
 
-<form method="POST" action="uploadFile" enctype="multipart/form-data">
-    File to upload: <input type="file" name="file"><br />
-    Name: <input type="text" name="name"><br /> <br />
-    <input type="submit" value="Upload"> Press here to upload the file!
-</form>
-
-<button type = "button" style= "position: absolute; top: 30px; right: 25px;" onclick = "window.location.href='home.jsp'" >Home Page</button>
+    <h2>Upload Your File to Compress</h2><br>
 
 
+    <div class="form-container">
+    <form:form method="POST" action="uploadFile" enctype="multipart/form-data">
+        <input type="file" placeholder="Chose File" name="file"/>
+        <button type = "submit" id="Upload" value="Upload">Press here to upload the file!</button>
+    </form:form>
+    </div>
+    <button type = "button" style= "position: absolute; top: 30px; right: 25px;" onclick = "window.location.href='home.jsp'" >Home Page</button>
 
 </body>
 

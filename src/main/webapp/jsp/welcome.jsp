@@ -5,10 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome</title>
-	<style><%@include file="resources/common.css"%></style>
+	<style type="text/css"><%@include file="resources/common.css"%></style>
 </head>
 
 <body>
+
+
 	<table>
 		<tr >
 			<td>Welcome ${firstname}</td>
