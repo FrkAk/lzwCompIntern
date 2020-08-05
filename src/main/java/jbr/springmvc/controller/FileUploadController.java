@@ -3,8 +3,10 @@ package jbr.springmvc.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.List;
 
 import jbr.springmvc.model.Login;
+import jbr.springmvc.service.LZWCompressionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -47,6 +49,16 @@ public class FileUploadController {
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
+                String fileContent= new String(bytes);
+
+                List<Integer> compressed = LZWCompressionService.compress(fileContent);
+                System.out.println(compressed);
+                /**
+                 * Compressed content should be written to to file.
+                 */
+
+                String decompressed = LZWCompressionService.decompress(compressed);
+                System.out.println(decompressed);
 
                 // Creating the directory to store file
                 String rootPath = System.getProperty("catalina.home");
