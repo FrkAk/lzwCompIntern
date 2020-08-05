@@ -43,8 +43,8 @@ public class FileUploadController {
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     public @ResponseBody
-    String uploadFileHandler(@RequestParam("name") String name,
-                             @RequestParam("file") MultipartFile file) {
+    String uploadFileAndLZWHandler(@RequestParam("name") String name,
+                                   @RequestParam("file") MultipartFile file) {
 
         if (!file.isEmpty()) {
             try {
