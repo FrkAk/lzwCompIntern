@@ -49,12 +49,6 @@ public class verificationTokenService {
         user.setEnabled(false);
 
 
-
-
-
-
-
-
         return null;
     }
 

@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,13 +14,10 @@
 	<style type="text/css"><%@include file="/jsp/resources/css/style.css"%></style>
 
 
-
-
-
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
-	<div class="container"><a href="#" class="navbar-brand">LZW Comprassion</a>
+	<div class="container"><a href="#" class="navbar-brand">LZW Compression</a>
 
 		<div id="my-nav" class="collapse navbar-collapse">
 			<ul class="navbar-nav mr-auto">
@@ -45,7 +43,7 @@
 				<p>Lempel?Ziv?Welch(LZW) is a universal lossless data compression algorithm created by Abraham Lempel, Jacob Ziv, and Terry Welch. It is the one of the most popular algorithm to compress files.</p>
 				<a href="upload">Let's Try<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
 			<div class="col-md-6">
-				<div class="card"><img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/jsp/resources/images/banner-img.png" alt=""></div>
+				<div class="card"><img class="card-img-top img-fluid" src="images/banner-img.png"></div>
 			</div>
 		</div>
 	</div>
@@ -63,7 +61,7 @@
 									<stop offset="100%" stop-color="rgb(29,62,222)" stop-opacity="1"></stop>
 								</linearGradient>
 							</defs>
-							<path fill-rule="evenodd" opacity="0.102" fill="url(#PSgrad_01)" d="M616.656,2.494 L89.351,98.948 C19.867,111.658 -16.508,176.639 7.408,240.130 L122.755,546.348 C141.761,596.806 203.597,623.407 259.843,609.597 L697.535,502.126 C748.221,489.680 783.967,441.432 777.751,392.742 L739.837,95.775 C732.096,35.145 677.715,-8.675 616.656,2.494 Z"></path>
+							<path fill-rule="evenodd" opacity="1" fill="url(#PSgrad_01)" d="M616.656,2.494 L89.351,98.948 C19.867,111.658 -16.508,176.639 7.408,240.130 L122.755,546.348 C141.761,596.806 203.597,623.407 259.843,609.597 L697.535,502.126 C748.221,489.680 783.967,441.432 777.751,392.742 L739.837,95.775 C732.096,35.145 677.715,-8.675 616.656,2.494 Z"></path>
 						</svg>
 						<!-- *************-->
 
@@ -72,7 +70,7 @@
 								<path d="M89.479,0.180 L512.635,25.932 C568.395,29.326 603.115,76.927 590.357,129.078 L528.827,380.603 C518.688,422.048 472.661,448.814 427.190,443.300 L73.350,400.391 C32.374,395.422 -0.267,360.907 -0.002,322.064 L1.609,85.154 C1.938,36.786 40.481,-2.801 89.479,0.180 Z"></path>
 							</clipPath>
 							<!-- xlink:href for modern browsers, src for IE8- -->
-							<image clip-path="url(#clip-path)" xlink:href="images/learn-img.jpg" width="100%" height="465" class="svg__image"></image>
+							<image clip-path="url(#clip-path)" xlink:href="images/word-map.png" width="100%" height="465" class="svg__image"></image>
 						</svg>
 					</div>
 				</div>
@@ -87,7 +85,7 @@
 						dictum id neque.
 					</small>
 				</p>
-				<a href="#">Create An Account<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+				<a href="register">Create An Account<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
 		</div>
 	</div>
 </div>
@@ -100,7 +98,7 @@
 				<p> Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla, cursus
 					impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac, dictum id
 					neque. </p>
-				<a href="#">Create an Account<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+				<a href="register">Create an Account<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
 			<div class="col-lg-8">
 				<svg id="bg-services" width="100%" viewBox="0 0 1000 800">
 					<defs>
