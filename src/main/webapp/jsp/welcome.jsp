@@ -10,18 +10,8 @@
 
 <body>
 
+	Welcome ${firstname}
+	<button type = "button" style= "position: absolute; top: 30px; right: 25px;" onclick = "window.location.href='home.jsp'" >Home Page</button>
 
-	<table>
-		<tr >
-			<td>Welcome ${firstname}</td>
-		</tr>
-		<tr>
-		</tr>
-		<tr>
-		</tr>
-		<tr>
-			<td><a href="home.jsp">Home</a></td>
-		</tr>
-	</table>
 </body>
 </html>

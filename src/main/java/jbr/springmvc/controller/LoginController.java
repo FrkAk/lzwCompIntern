@@ -39,8 +39,9 @@ public class LoginController {
     // @RequestMapping(value = "/user", method = RequestMethod.POST)
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if (null != user) {
-      mav = new ModelAndView("welcome");
+      mav = new ModelAndView("upload");
       mav.addObject("firstname", user.getFirstname());
+      mav.addObject("username", user.getUsername());
     } else {
       mav = new ModelAndView("login");
       mav.addObject("message", "Username or Password is wrong!!");

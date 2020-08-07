@@ -6,8 +6,9 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 
-import jbr.springmvc.model.Login;
+import jbr.springmvc.service.FileService;
 import jbr.springmvc.service.LZWCompressionService;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -51,6 +52,24 @@ public class FileUploadController {
 
         if (!file.isEmpty()) {
             try {
+
+                FileService fileService = new FileService();
+                fileService.setFile(file);
+                fileService.setName(uniqueID);
+                fileService.setSize(file.getSize());
+                fileService.setExtension(file.getName());
+                fileService.setUser(null);
+
+
+                File zip= File.createTempFile(uniqueID,"temp");
+                FileOutputStream outputStream= new FileOutputStream(zip);
+                IOUtils.copy(file.getInputStream(),outputStream);
+
+                /**
+                 * NOT COMPLETED!!!!!
+                 */
+
+
                 byte[] bytes = file.getBytes();
                 String fileContent= new String(bytes);
 
