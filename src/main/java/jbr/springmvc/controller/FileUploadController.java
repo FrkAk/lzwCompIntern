@@ -1,10 +1,11 @@
 package jbr.springmvc.controller;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.*;
+import java.nio.Buffer;
 import java.util.List;
 import java.util.UUID;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import jbr.springmvc.service.FileService;
 import jbr.springmvc.service.LZWCompressionService;
@@ -47,7 +48,8 @@ public class FileUploadController {
     public @ResponseBody
     String uploadFileAndLZWHandler(@RequestParam("file") MultipartFile file) {
         String uniqueID = UUID.randomUUID().toString();
-        String fileLogName= uniqueID+".txt";
+        String fileLogName= uniqueID+"."+getFileExtension(file);
+
 
 
         if (!file.isEmpty()) {
@@ -61,44 +63,23 @@ public class FileUploadController {
                 fileService.setUser(null);
 
 
-                File zip= File.createTempFile(uniqueID,"temp");
-                FileOutputStream outputStream= new FileOutputStream(zip);
-                IOUtils.copy(file.getInputStream(),outputStream);
 
-                /**
-                 * NOT COMPLETED!!!!!
-                 */
-
-
-                byte[] bytes = file.getBytes();
-                String fileContent= new String(bytes);
+                byte[] uncompressedByte = file.getBytes();
+                String fileContent= new String(uncompressedByte);
 
                 List<Integer> compressed = LZWCompressionService.compress(fileContent);
-                System.out.println(compressed);
-                /**
-                 * Compressed content should be written to to file.
-                 */
+                //System.out.println(compressed);
+
+
+                byte[] compressedByte= convertIntegersToBytes(compressed);
+                writeFile(compressedByte,"compressed"+fileLogName);
+
 
                 String decompressed = LZWCompressionService.decompress(compressed);
-                System.out.println(decompressed);
+                //System.out.println(decompressed);
 
+                writeFile(compressedByte,"uncompressedByte"+fileLogName);
 
-                // Creating the directory to store file
-                String rootPath = System.getProperty("catalina.home");
-                File dir = new File(rootPath + File.separator + "tmpFiles");
-                if (!dir.exists())
-                    dir.mkdirs();
-
-                // Create the file on server
-                File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + fileLogName);
-                BufferedOutputStream stream = new BufferedOutputStream(
-                        new FileOutputStream(serverFile));
-                stream.write(bytes);
-                stream.close();
-
-                logger.info("Server File Location="
-                        + serverFile.getAbsolutePath());
 
                 return "You successfully uploaded file=" + fileLogName;
             } catch (Exception e) {
@@ -109,5 +90,50 @@ public class FileUploadController {
                     + " because the file was empty.";
         }
     }
+
+
+    public static void writeFile(byte[] fileBytes, String fileLogName) throws IOException {
+        // Creating the directory to store file
+        String rootPath = System.getProperty("catalina.home");
+        File dir = new File(rootPath + File.separator + "tmpFiles");
+        if (!dir.exists())
+            dir.mkdirs();
+
+
+        // Create the file on server
+        File serverFile = new File(dir.getAbsolutePath()
+                + File.separator + fileLogName);
+        BufferedOutputStream stream = new BufferedOutputStream(
+                new FileOutputStream(serverFile));
+        stream.write(fileBytes);
+        stream.close();
+
+        logger.info("Server File Location="
+                + serverFile.getAbsolutePath());
+    }
+
+    public static byte[] convertIntegersToBytes (List<Integer> integers) {
+        if (integers != null) {
+            byte[] outputBytes = new byte[integers.size() * 4];
+
+            for(int i = 0, k = 0; i < integers.size(); i++) {
+                int integerTemp = integers.get(i);
+                for(int j = 0; j < 4; j++, k++) {
+                    outputBytes[k] = (byte)((integerTemp >> (8 * j)) & 0xFF);
+                }
+            }
+            return outputBytes;
+        } else {
+            return null;
+        }
+    }
+
+    private static String getFileExtension(MultipartFile file) {
+        String fileName = file.getOriginalFilename();
+        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+            return fileName.substring(fileName.lastIndexOf(".")+1);
+        else return "";
+    }
+
 
 }

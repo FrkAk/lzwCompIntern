@@ -77,12 +77,9 @@
 			</div>
 			<div class="col-md-5">
 				<h2>Our compression system use our Server to not tired your computer</h2>
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus turpis nisl, vitae dictum mi
-					semper convallis. Ut sapien leo, varius ac dapibus a, cursus quis ante. </p>
+				<p> Server-side scripting prevents increasing of the load as it does not require plugins or browser scripting technology (such as Javascript). Overloading leads to problems like slow loading, high CPU usage, and even freezing.</p>
 				<p>
-					<small>Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla,
-						cursus impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac,
-						dictum id neque.
+					<small>It is used to create pages dynamically on the fly. Based on the user interaction, new pages can instantly be created.
 					</small>
 				</p>
 				<a href="register">Create An Account<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
@@ -95,9 +92,6 @@
 			<div class="col-lg-4">
 				<h2> Explore The Services<br>
 					We Offer For You </h2>
-				<p> Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla, cursus
-					impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac, dictum id
-					neque. </p>
 				<a href="register">Create an Account<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
 			<div class="col-lg-8">
 				<svg id="bg-services" width="100%" viewBox="0 0 1000 800">
@@ -115,16 +109,14 @@
 							<div class="oval"><img class="card-img-top" src="images/web-design.png" alt=""></div>
 							<div class="card-body">
 								<h3 class="card-title">On server System</h3>
-								<p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
-									eget.</p>
+								<p class="card-text">Server-side scripting does not depend on browser processing as all the processing is performed on the server side</p>
 							</div>
 						</div>
 						<div class="card text-center">
 							<div class="oval"><img class="card-img-top" src="images/marketing.png" alt=""></div>
 							<div class="card-body">
-								<h3 class="card-title">Reailble</h3>
-								<p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
-									eget.</p>
+								<h3 class="card-title">Reliable</h3>
+								<p class="card-text">As the scripting is done on the server, it is not sent back to the browser, which prevents it from being cloned, copied, or scrutinized for hacking vulnerabilities</p>
 							</div>
 						</div>
 					</div>
@@ -133,16 +125,14 @@
 							<div class="oval"><img class="card-img-top" src="images/seo.png" alt=""></div>
 							<div class="card-body">
 								<h3 class="card-title">Faster</h3>
-								<p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
-									eget.</p>
+								<p class="card-text">Converting time of your files often reduced</p>
 							</div>
 						</div>
 						<div class="card text-center">
 							<div class="oval"><img class="card-img-top" src="images/graphics-design.png" alt=""></div>
 							<div class="card-body">
 								<h3 class="card-title">Encrypted</h3>
-								<p class="card-text">Nullam quis libero in lorem accumsan sodales. Nam vel nisi
-									eget.</p>
+								<p class="card-text">An increased security is ensured for user privacy</p>
 							</div>
 						</div>
 					</div>
