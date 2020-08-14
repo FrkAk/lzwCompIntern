@@ -10,8 +10,9 @@
 </head>
 
 <body>
-    <h2>Welcome ${firstname} -> Username ${username}</h2>
+    <h2>Welcome ${firstname}</h2>
     <h2>Upload Your File to Compress</h2><br>
+
 
 
     <div class="form-container">

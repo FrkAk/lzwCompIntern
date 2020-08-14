@@ -7,7 +7,8 @@ import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import jbr.springmvc.service.FileService;
+
+import jbr.springmvc.model.User;
 import jbr.springmvc.service.LZWCompressionService;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -46,21 +47,18 @@ public class FileUploadController {
      */
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     public @ResponseBody
-    String uploadFileAndLZWHandler(@RequestParam("file") MultipartFile file) {
+    String uploadFileAndLZWHandler(@RequestParam("file") MultipartFile file,
+                                   @RequestParam("user") User user) {
         String uniqueID = UUID.randomUUID().toString();
         String fileLogName= uniqueID+"."+getFileExtension(file);
+
+        System.out.println(user);
 
 
 
         if (!file.isEmpty()) {
             try {
 
-                FileService fileService = new FileService();
-                fileService.setFile(file);
-                fileService.setName(uniqueID);
-                fileService.setSize(file.getSize());
-                fileService.setExtension(file.getName());
-                fileService.setUser(null);
 
 
 
@@ -78,7 +76,7 @@ public class FileUploadController {
                 String decompressed = LZWCompressionService.decompress(compressed);
                 //System.out.println(decompressed);
 
-                writeFile(compressedByte,"uncompressedByte"+fileLogName);
+                writeFile(uncompressedByte,"uncompressedByte"+fileLogName);
 
 
                 return "You successfully uploaded file=" + fileLogName;
@@ -114,7 +112,8 @@ public class FileUploadController {
 
     public static byte[] convertIntegersToBytes (List<Integer> integers) {
         if (integers != null) {
-            byte[] outputBytes = new byte[integers.size() * 4];
+            byte[] outputBytes = new byte[integers.size()*4
+                    ];
 
             for(int i = 0, k = 0; i < integers.size(); i++) {
                 int integerTemp = integers.get(i);

@@ -41,7 +41,7 @@ public class LoginController {
     if (null != user) {
       mav = new ModelAndView("upload");
       mav.addObject("firstname", user.getFirstname());
-      mav.addObject("username", user.getUsername());
+      mav.addObject(user);
     } else {
       mav = new ModelAndView("login");
       mav.addObject("message", "Username or Password is wrong!!");

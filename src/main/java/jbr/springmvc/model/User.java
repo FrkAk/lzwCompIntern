@@ -1,5 +1,7 @@
 package jbr.springmvc.model;
 
+import java.util.List;
+
 public class User {
 
   private String username;
@@ -12,6 +14,7 @@ public class User {
   private boolean enabled=false;
   private String token;
   private int phone;
+  private List<String> filePaths;
 
 
   /*public User(String username, String password, String firstname,
@@ -25,7 +28,9 @@ public class User {
     this.phone = phone;
   }*/
 
-
+  public User getUSer(String username){
+    return this;
+  }
 
   public String getUsername() {
     return username;
@@ -65,6 +70,10 @@ public class User {
 
   public String getToken() {
     return token;
+  }
+
+  public List<String> getFilePaths() {
+    return filePaths;
   }
 
   public void setUsername(String username) {
@@ -110,6 +119,10 @@ public class User {
     this.enabled = enabled;
   }
 
+  public void setFilePaths(List<String> filePaths) {
+    this.filePaths = filePaths;
+  }
+
   @Override
   public String toString() {
     return "{ username='" + username + '\'' +
@@ -120,7 +133,8 @@ public class User {
             ", address='" + address + '\'' +
             ", status='" + status + '\'' +
             ", enabled='" + enabled + '\'' +
-            ", phone=" + phone +
+            ", phone='" + phone +
+            ", filePaths='" + filePaths + '\'' +
             '}';
   }
 
